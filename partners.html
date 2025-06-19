@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Partners - Saflec Systems</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      overflow-x: hidden;
+    }
+    .card {
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .category-content {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      opacity: 0;
+      transform: translateY(20px);
+      display: none;
+    }
+    .category-content.active {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+    .slider-tab {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .slider-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #3b82f6;
+    }
+    .slider-container {
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+    }
+    .slider-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .slider-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .slider-container::-webkit-scrollbar-thumb {
+      background-color: rgba(156, 163, 175, 0.5);
+      border-radius: 20px;
+    }
+    .animated-gradient-bg {
+      background: linear-gradient(270deg, #3b82f6, #93c5fd, #dbeafe);
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #1e40af, #2563eb, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    header {
+      height: 88px;
+      box-sizing: border-box;
+    }
+    header > div.container {
+      height: calc(88px - 8px);
+      padding-top: 0;
+      padding-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<main class="flex-1">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-md z-30">
+  <div class="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-100"></div>
+  <div class="container mx-auto px-4">
+    <a href="index.html#home">
+      <img src="New Saflec Systems Logo 21.png" alt="Saflec Systems Logo" class="h-14 sm:h-16 w-auto" />
+    </a>
+  </div>
+  <div class="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-100"></div>
+</header>
+
+<!-- Hero Section -->
+<section class="animated-gradient-bg pt-32 md:pt-40 pb-20 px-4 md:px-8">
+  <div class="max-w-4xl mx-auto text-black text-center">
+    <h1 class="text-4xl md:text-6xl font-bold">Our Partners</h1>
+    <p class="text-lg md:text-xl opacity-90 mt-2">
+      At Saflec Systems, we’re proud to collaborate with trusted industry leaders who share our commitment to innovation, reliability, and excellence. Together, we deliver smarter, more secure solutions to customers across the globe.
+    </p>
+  </div>
+</section>
+
+<!-- Horizontal Slider Navigation -->
+<div class="bg-gray-50 shadow-md sticky top-[88px] z-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="overflow-x-auto scroll-smooth scroll-px-4 flex justify-center">
+      <div class="flex gap-2 md:gap-4 py-4 px-4 whitespace-nowrap">
+        <button class="slider-tab active px-4 py-2 font-medium gradient-text" data-partner="partner1">Biometrics</button>
+        <button class="slider-tab px-4 py-2 font-medium gradient-text" data-partner="partner2">CCTV</button>
+        <button class="slider-tab px-4 py-2 font-medium gradient-text" data-partner="partner3">Automation</button>
+        <button class="slider-tab px-4 py-2 font-medium gradient-text" data-partner="partner4">Printers</button>
+        <button class="slider-tab px-4 py-2 font-medium gradient-text" data-partner="partner5">Display Systems</button>
+        <button class="slider-tab px-4 py-2 font-medium gradient-text" data-partner="partner6">Point of Sale</button>
+        <button class="slider-tab px-4 py-2 font-medium gradient-text" data-partner="partner7">HR & Workforce Management</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</br>
+    <!-- Partner Grid - Biometrics -->
+<div id="partner1" class="category-content active">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Assa Abloy -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Assa Abloy.jpg" alt="Assa Abloy Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Assa Abloy</h3>
+          <p class="mt-2 text-gray-600">Global leader in access solutions, offering advanced biometric authentication systems.</p>
+          <div class="mt-4">
+            <a href="https://www.assaabloy.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Hikvision -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Hikvision.png" alt="Hikvision Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Hikvision</h3>
+          <p class="mt-2 text-gray-600">Leading provider of intelligent video surveillance and biometric security solutions for government and enterprise markets.</p>
+          <div class="mt-4">
+            <a href="https://www.hikvision.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Idemia -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Idemia.gif" alt="Idemia Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Idemia</h3>
+          <p class="mt-2 text-gray-600">Pioneers in augmented identity and biometric technology, delivering secure authentication for governments and corporations globally.</p>
+          <div class="mt-4">
+            <a href="https://www.idemia.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- STid -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="STid.jpg" alt="STid Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">STid</h3>
+          <p class="mt-2 text-gray-600">Leading provider of intelligent video surveillance and biometric security solutions for government and enterprise markets.</p>
+          <div class="mt-4">
+            <a href="https://www.stid.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Suprema -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Suprema.jpg" alt="Suprema Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Suprema</h3>
+          <p class="mt-2 text-gray-600">Leading provider of intelligent video surveillance and biometric security solutions for government and enterprise markets.</p>
+          <div class="mt-4">
+            <a href="https://www.supremainc.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Virdi -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Virdi.png" alt="Virdi Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Virdi</h3>
+          <p class="mt-2 text-gray-600">Leading provider of intelligent video surveillance and biometric security solutions for government and enterprise markets.</p>
+          <div class="mt-4">
+            <a href="https://www.virditech.co.za/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Grid - CCTV -->
+<div id="partner2" class="category-content">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Avigilon -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Avigilon.jpg" alt="Avigilon Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Avigilon</h3>
+          <p class="mt-2 text-gray-600">A Motorola Solutions company specializing in advanced video analytics, AI-powered surveillance, and end-to-end security.</p>
+          <div class="mt-4">
+            <a href="https://www.avigilon.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Cathexis -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Cathexis.jpg" alt="Cathexis Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Cathexis</h3>
+          <p class="mt-2 text-gray-600">A globally recognized provider of video surveillance software solutions, delivering powerful and scalable management tools.</p>
+          <div class="mt-4">
+            <a href="https://www.cathexisvideo.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Geutebrück -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Geutebruck.jpg" alt="Geutebrück Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Geutebrück</h3>
+          <p class="mt-2 text-gray-600">German-based manufacturer of intelligent video security systems with a focus on loss prevention and industrial process.</p>
+          <div class="mt-4">
+            <a href="https://www.geutebrueck.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- NUUO -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="NUUO.jpg" alt="NUUO Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">NUUO</h3>
+          <p class="mt-2 text-gray-600">Developer of reliable and feature-rich video management systems (VMS) and NVR solutions for diverse surveillance.</p>
+          <div class="mt-4">
+            <a href="https://www.nuuo.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Pelco -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Pelco.webp" alt="Pelco Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Pelco</h3>
+          <p class="mt-2 text-gray-600">Renowned video security solutions brand offering robust cameras, recording systems, and video analytics for various industries.</p>
+          <div class="mt-4">
+            <a href="https://www.pelco.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Grid - Automation -->
+<div id="partner3" class="category-content">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Beckhoff -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Beckhoff.jpg" alt="Beckhoff Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Beckhoff</h3>
+          <p class="mt-2 text-gray-600">Global leader in automation technology, specializing in PC-based control systems for smart manufacturing and industry 4.0 solutions.</p>
+          <div class="mt-4">
+            <a href="https://www.beckhoff.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div
+
+<!-- Partner Grid - Printers -->
+<div id="partner4" class="category-content">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Entrust -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Entrust.webp" alt="Entrust Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Entrust</h3>
+          <p class="mt-2 text-gray-600">Global leader in secure identity and card issuance solutions.</p>
+          <div class="mt-4">
+            <a href="https://www.entrust.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Evolis -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Evolis.jpg" alt="Evolis Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Evolis</h3>
+          <p class="mt-2 text-gray-600">Innovative plastic card printers for ID, access control, and loyalty cards.</p>
+          <div class="mt-4">
+            <a href="https://www.evolis.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Fargo -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Fargo.png" alt="Fargo Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Fargo</h3>
+          <p class="mt-2 text-gray-600">Reliable ID card printers and solutions for secure identity management.</p>
+          <div class="mt-4">
+            <a href="https://www.hidglobal.com/products/printers/fargo" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Magicard -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Magicard.jpg" alt="Magicard Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Magicard</h3>
+          <p class="mt-2 text-gray-600">High-quality card printers featuring security watermarking and customisation.</p>
+          <div class="mt-4">
+            <a href="https://magicard.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- SwiftPro -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Swiftpro.png" alt="SwiftPro Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">SwiftPro</h3>
+          <p class="mt-2 text-gray-600">Efficient and fast card printing solutions for high-volume needs.</p>
+          <div class="mt-4">
+            <a href="https://swiftpro-printer.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Zebra -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Zebra.jpg" alt="Zebra Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Zebra</h3>
+          <p class="mt-2 text-gray-600">Leading provider of barcode, label, and card printing technologies.</p>
+          <div class="mt-4">
+            <a href="https://www.zebra.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Grid - Display Systems -->
+<div id="partner5" class="category-content">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Polycomp -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="PolyComp.png" alt="Polycomp Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Polycomp</h3>
+          <p class="mt-2 text-gray-600">Innovative visual display solutions for retail and commercial environments.</p>
+          <div class="mt-4">
+            <a href="https://www.polycomp.co.za/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Grid - Point of Sale -->
+<div id="partner6" class="category-content">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Plankomat -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Plankomat.webp" alt="Plankomat Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Plankomat</h3>
+          <p class="mt-2 text-gray-600">Leading provider of point-of-sale hardware and software solutions for retailers.</p>
+          <div class="mt-4">
+            <a href="https://plankomat.co.za/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Grid - HR & Workforce Management -->
+<div id="partner7" class="category-content">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <!-- Amano -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Amano.png" alt="Amano Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Amano</h3>
+          <p class="mt-2 text-gray-600">Innovative time management and attendance solutions for workforce efficiency.</p>
+          <div class="mt-4">
+            <a href="https://www.amano.co.jp/en/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- Jarrison Time -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="JarrisonTime.png" alt="Jarrison Time Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Jarrison Time</h3>
+          <p class="mt-2 text-gray-600">Reliable time tracking and attendance systems tailored for diverse workplaces.</p>
+          <div class="mt-4">
+            <a href="https://www.jarrison.co.za/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- SAGE -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="Sage.png" alt="SAGE Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">SAGE</h3>
+          <p class="mt-2 text-gray-600">Comprehensive HR and payroll software for small to medium businesses.</p>
+          <div class="mt-4">
+            <a href="https://www.sage.com/en-za/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+      <!-- UKG -->
+      <div class="partner-card bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md mx-auto text-center">
+        <div class="p-6">
+          <div class="mb-4">
+            <img src="UKG.webp" alt="UKG Logo" class="h-48 w-48 object-contain mx-auto rounded-lg" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">UKG</h3>
+          <p class="mt-2 text-gray-600">Global leader in workforce management and human capital solutions.</p>
+          <div class="mt-4">
+            <a href="https://www.ukg.com/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+</br>
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-blue-500 via-blue-250 to-blue-100 text-white text-center py-4 font-[itc-eras]">
+  <p>&copy; 2025 Saflec Systems. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript to handle tab switching -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".slider-tab");
+    const sections = document.querySelectorAll(".category-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        sections.forEach(section => section.classList.remove("active"));
+
+        const selectedId = tab.getAttribute("data-partner");
+        const selectedSection = document.getElementById(selectedId);
+        if (selectedSection) {
+          selectedSection.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
