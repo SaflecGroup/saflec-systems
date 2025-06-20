@@ -137,43 +137,67 @@
   </div>
 </div>
 
+<!-- Content Sections -->
+<div id="product1" class="partner-section fade"></div>
+<div id="product2" class="partner-section fade"></div>
+<div id="product3" class="partner-section fade"></div>
+<div id="product4" class="partner-section fade"></div>
+<div id="product5" class="partner-section fade"></div>
+
+<!-- Styling -->
+<style>
+  .partner-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .partner-section.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .slider-tab.active {
+    color: #000;
+  }
+
+  .fade {
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>
+
+<!-- Tab Switching Script -->
 <script>
-  // Get all tab buttons and all content sections
-  const tabs = document.querySelectorAll('.slider-tab');
-  const sections = document.querySelectorAll('.partner-section');
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.slider-tab');
+    const sections = document.querySelectorAll('.partner-section');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-partner');
-
-      // Remove active class from all tabs
-      tabs.forEach(t => t.classList.remove('active'));
-      // Add active class to clicked tab
-      tab.classList.add('active');
-
-      // Hide all sections
+    function showSection(targetId) {
       sections.forEach(section => {
-        section.classList.remove('active');
-        section.style.display = 'none';
+        if (section.id === targetId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
       });
+    }
 
-      // Show the targeted section
-      const targetSection = document.getElementById(target);
-      if (targetSection) {
-        targetSection.classList.add('active');
-        targetSection.style.display = 'block';
-      }
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-partner');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        showSection(target);
+      });
     });
-  });
 
-  // Optional: Initialize - show only the active tab content on page load
-  window.addEventListener('DOMContentLoaded', () => {
+    // Initial display setup
     const activeTab = document.querySelector('.slider-tab.active');
     if (activeTab) {
       const target = activeTab.getAttribute('data-partner');
-      sections.forEach(section => section.style.display = 'none');
-      const activeSection = document.getElementById(target);
-      if (activeSection) activeSection.style.display = 'block';
+      showSection(target);
     }
   });
 </script>
@@ -183,38 +207,98 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
     <!-- Card 1 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-320')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/ssp-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/sdc-320.png" alt="SDC-320" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Welcome to Saflec Systems the #1 Access Control Company</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">SDC-320 Controller</h3>
+        <p class="text-gray-600">Two Door Ethernet Controller with 1000 tag holders, lockable case, 5A PSU and lithium battery included.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-320</p>
       </div>
     </div>
     <!-- Card 2 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-320-PCB')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/ssp-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/sdc-320-pcb.png" alt="SDC-320-PCB" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Welcome to Saflec Systems the #1 Access Control Company</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">SDC-320 PCB Only</h3>
+        <p class="text-gray-600">PCB only version of SDC-320, controls up to 2 doors / 4 readers with support for 1000 tag holders.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-320-PCB</p>
       </div>
     </div>
     <!-- Card 3 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-620')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/sdc-620.png" alt="SDC-620" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Welcome to Saflec Systems the #1 Access Control Company</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">SDC-620 Controller</h3>
+        <p class="text-gray-600">Controls up to 8 doors / 16 readers via SEB-7xx, with 250,000 tag holders, case, PSU and battery included.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-620</p>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-620-PCB')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/sdc-620-pcb.png" alt="SDC-620-PCB" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">SDC-620 PCB Only</h3>
+        <p class="text-gray-600">PCB version for 8-door control via SEB-7xx, supporting 250,000 tag holders. Expansion boards required.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-620-PCB</p>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-620-SEB710')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/sdc-620-seb710.png" alt="SDC-620 + SEB-710" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">SDC-620 + SEB-710</h3>
+        <p class="text-gray-600">Eight Door Ethernet Controller with 250,000 tag holders, case, PSU and 8aH lithium battery included.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-620/SEB-710-COMBO</p>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-650')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/sdc-650.png" alt="SDC-650" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">SDC-650 Controller</h3>
+        <p class="text-gray-600">Five Door Controller expandable to 8 doors / 16 readers, 250,000 tag holders, case, PSU, and battery included.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-650</p>
+      </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-650-PCB')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/sdc-650-pcb.png" alt="SDC-650-PCB" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">SDC-650 PCB Only</h3>
+        <p class="text-gray-600">PCB version for 8-door control with SEB expansion. Supports up to 250,000 tag holders. No casing or PSU.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-650-PCB</p>
+      </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SDC-650-SEB710')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/sdc-650-seb710.png" alt="SDC-650 + SEB-710" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">SDC-650 + SEB-710</h3>
+        <p class="text-gray-600">Full Eight Door Ethernet Controller with 250,000 tag holders, lockable case, PSU and lithium battery.</p>
+        <p class="mt-4 text-sm font-medium text-transparent bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text">Product Code: SDC-650/SEB-710-COMBO</p>
       </div>
     </div>
   </div>
@@ -223,7 +307,6 @@
 <!-- Readers Section --> 
 <section id="product2" class="partner-section bg-gray-50 py-8 category-content"> 
   <div class="max-w-7xl mx-auto px-4 space-y-8">
-
 <!-- Heading 1 -->
 <h2 class="text-2xl font-semibold text-gray-800">Hikvision Facial Recognition Readers</h2>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -378,70 +461,70 @@
   </div> 
 </div>
 
-    <!-- Heading 3 -->
-    <h2 class="text-2xl font-semibold text-gray-800">Proximity & Smart Card Readers</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card 1 -->
-      <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full"> 
-        <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button> 
-        <div class="flex items-center justify-center w-full aspect-[3/2] p-4"> 
-          <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" /> 
-        </div> 
-        <div class="p-6 text-center"> 
-          <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3> 
-          <p class="text-gray-600">Readers category product</p> 
-          <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p> 
-        </div> 
-      </div>
-	  <!-- Card 2 -->
-      <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full"> 
-        <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button> 
-        <div class="flex items-center justify-center w-full aspect-[3/2] p-4"> 
-          <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" /> 
-        </div> 
-        <div class="p-6 text-center"> 
-          <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3> 
-          <p class="text-gray-600">Readers category product</p> 
-          <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p> 
-        </div> 
-      </div> 
-      <!-- Card 3 -->
-      <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full"> 
-        <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button> 
-        <div class="flex items-center justify-center w-full aspect-[3/2] p-4"> 
-          <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" /> 
-        </div> 
-        <div class="p-6 text-center"> 
-          <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3> 
-          <p class="text-gray-600">Readers category product</p> 
-          <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p> 
-        </div> 
-      </div>
-      <!-- Card 4 -->
-      <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full"> 
-        <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button> 
-        <div class="flex items-center justify-center w-full aspect-[3/2] p-4"> 
-          <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" /> 
-        </div> 
-        <div class="p-6 text-center"> 
-          <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3> 
-          <p class="text-gray-600">Readers category product</p> 
-          <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p> 
-        </div> 
-      </div> 
-      <!-- Card 5 -->
-      <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full"> 
-        <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button> 
-        <div class="flex items-center justify-center w-full aspect-[3/2] p-4"> 
-          <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" /> 
-        </div> 
-        <div class="p-6 text-center"> 
-          <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3> 
-          <p class="text-gray-600">Readers category product</p> 
-          <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p> 
-        </div> 
-      </div> 
+<!-- Heading 3 -->
+<h2 class="text-2xl font-semibold text-gray-800">Proximity & Smart Card Readers</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- SSR-201 -->
+  <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+    <button class="add-to-cart-btn" onclick="addToCart('SSR-201')">Add to Quote</button>
+    <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+      <img src="images/SSR-201.png" alt="SSR-201" class="object-contain max-w-full max-h-full rounded-md" />
     </div>
+    <div class="p-6 text-center">
+      <h3 class="font-semibold text-lg mb-2">RS-485 Proximity Card Reader</h3>
+      <p class="text-gray-600">125KHz reader using SACS RS-485 protocol. Reliable and efficient card reading. Ideal for basic access control systems.</p>
+      <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSR-201</p>
+    </div>
+  </div>
+  <!-- SSR-202 -->
+  <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+    <button class="add-to-cart-btn" onclick="addToCart('SSR-202')">Add to Quote</button>
+    <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+      <img src="images/SSR-202.png" alt="SSR-202" class="object-contain max-w-full max-h-full rounded-md" />
+    </div>
+    <div class="p-6 text-center">
+      <h3 class="font-semibold text-lg mb-2">Wiegand Card Reader</h3>
+      <p class="text-gray-600">125KHz proximity card reader with Wiegand output. Works with most access systems. Robust and weather-resistant design.</p>
+      <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSR-202</p>
+    </div>
+  </div>
+  <!-- SSR-204 -->
+  <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+    <button class="add-to-cart-btn" onclick="addToCart('SSR-204')">Add to Quote</button>
+    <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+      <img src="images/SSR-204.png" alt="SSR-204" class="object-contain max-w-full max-h-full rounded-md" />
+    </div>
+    <div class="p-6 text-center">
+      <h3 class="font-semibold text-lg mb-2">OSDP Mifare Card Reader</h3>
+      <p class="text-gray-600">Mifare reader with OSDP/Wiegand protocols. IP65 rated for outdoor use. 123×88×21mm form factor suits most installations.</p>
+      <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSR-204</p>
+    </div>
+  </div>
+  <!-- SSR-221 -->
+  <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+    <button class="add-to-cart-btn" onclick="addToCart('SSR-221')">Add to Quote</button>
+    <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+      <img src="images/SSR-221.png" alt="SSR-221" class="object-contain max-w-full max-h-full rounded-md" />
+    </div>
+    <div class="p-6 text-center">
+      <h3 class="font-semibold text-lg mb-2">USB Take On Reader</h3>
+      <p class="text-gray-600">125KHz USB reader for card enrollment. Simplifies adding users in SACS software. Compact, plug-and-play functionality.</p>
+      <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSR-221</p>
+    </div>
+  </div>
+  <!-- SSR-250-DKP -->
+  <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+    <button class="add-to-cart-btn" onclick="addToCart('SSR-250-DKP')">Add to Quote</button>
+    <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+      <img src="images/SSR-250-DKP.png" alt="SSR-250-DKP" class="object-contain max-w-full max-h-full rounded-md" />
+    </div>
+    <div class="p-6 text-center">
+      <h3 class="font-semibold text-lg mb-2">RS-485 Reader with LCD & Keypad</h3>
+      <p class="text-gray-600">125KHz RS-485 reader with display and keypad. Touch interface enhances user experience. Ideal for PIN+card access modes.</p>
+      <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSR-250-DKP</p>
+    </div>
+  </div>
+</div>
 
 <!-- Heading 4 -->
 <h2 class="text-2xl font-semibold text-gray-800">STid Mobile ID® Readers</h2>
@@ -680,55 +763,56 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
     <!-- Card 1 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SEB-710')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SEB-710.png" alt="SEB-710" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Expansion Boards product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">I/O Expansion Board for Controllers</h3>
+        <p class="text-gray-600">Expands I/O for SDC-650 and SDC-620. Includes 8 relays, 8 inputs, and 8 flexible I/O points. Ideal for controlling locks or mimic panels.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SEB-710</p>
       </div>
     </div>
     <!-- Card 2 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SEB-721')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SEB-721.png" alt="SEB-721" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Expansion Boards product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">Remote I/O Door Expansion Board</h3>
+        <p class="text-gray-600">RF remote-based expansion board with 2 relays and 4 inputs. Ideal for weather-exposed areas. Supports 30,000+ remotes with logging.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SEB-721</p>
       </div>
     </div>
     <!-- Card 3 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SEB-722')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SEB-722.png" alt="SEB-722" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Expansion Boards product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">Remote I/O RF Door Expansion Board</h3>
+        <p class="text-gray-600">Adds I/O closer to access points to reduce voltage drops. Supports 3 reader configurations. Works with SDC-620/650 controllers.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SEB-722</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Data Converter Section -->
+<!-- Card 1 -->
 <section id="product4" class="partner-section bg-gray-50 py-8 category-content">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SSI-302-H')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SSI-302-H.png" alt="SSI-302-H" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Data Converters product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">Isolated Wiegand Interface Board</h3>
+        <p class="text-gray-600">Bridges Wiegand and RS-485 with isolation for secure communication. Supports OSDP protocol and legacy conversion. Features 8-segment display for easy configuration.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSI-302-H</p>
       </div>
     </div>
   </div>
@@ -737,52 +821,126 @@
 <!-- Accessories Section -->
 <section id="product5" class="partner-section bg-gray-50 py-8 category-content">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
-    <!-- Card 1 -->
+	<!-- Card 1 -->
+    <!-- RF Equipment -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SSM-001')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/SSM-001.png" alt="SSM-001" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">RF Equipment</h3>
+        <p class="text-gray-600">Remote transmitter with 1-button operation. Compact, reliable, and ideal for simple access control. Works with SACS RF systems.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSM-001</p>
+      </div>
+    </div>
+	<!-- Card 2 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SSM-002')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/SSM-002.png" alt="SSM-002" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">RF Equipment</h3>
+        <p class="text-gray-600">3-button remote transmitter for multiple access points. Compact design and robust performance. Ideal for advanced RF control.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSM-002</p>
+      </div>
+    </div>
+	<!-- Card 3 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SSM-003')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/SSM-003.png" alt="SSM-003" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">RF Equipment</h3>
+        <p class="text-gray-600">Remote with 4 programmable buttons. Enables control of up to 4 access points. Rugged and user-friendly RF functionality.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSM-003</p>
+      </div>
+    </div>
+	<!-- Card 4 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SSM-004')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/SSM-004.png" alt="SSM-004" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">RF Equipment</h3>
+        <p class="text-gray-600">Replacement 1.5Vdc battery for RF transmitters. Ensures long-lasting operation. Essential for device uptime and reliability.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSM-004</p>
+      </div>
+    </div>
+    <!-- Power Supplies -->
+	<!-- Card 5 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
       <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
         <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Accessories product</p>
+        <h3 class="font-semibold text-lg mb-2">Power Supplies</h3>
+        <p class="text-gray-600">Switchmode PSU delivering 14.7Vdc at 5.0A. Compact and reliable power supply. Ideal for most access control installations.</p>
         <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
       </div>
     </div>
-    <!-- Card 2 -->
+	<!-- Card 6 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SSP-002')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SSP-002.png" alt="SSP-002" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Accessories product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">Power Supplies</h3>
+        <p class="text-gray-600">12V 7.2Ah lead-acid battery. Float charge 13.5V–13.8V. Designed for stable, long-term backup power in secure systems.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-002</p>
       </div>
     </div>
-    <!-- Card 3 -->
+	<!-- Card 7 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SSP-003')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SSP-003.png" alt="SSP-003" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Accessories product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">Power Supplies</h3>
+        <p class="text-gray-600">12.8V 8Ah lithium battery upgrade. Longer life with 3-year warranty. Ideal for replacing traditional lead-acid units.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-003</p>
       </div>
     </div>
-    <!-- Card 4 -->
+	<!-- Card 8 -->
     <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
-      <button class="add-to-cart-btn" onclick="addToCart('SSP-001')">Add to Quote</button>
+      <button class="add-to-cart-btn" onclick="addToCart('SSP-004')">Add to Quote</button>
       <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
-        <img src="images/SSP-001.png" alt="SSP-001" class="object-contain max-w-full max-h-full rounded-md" />
+        <img src="images/SSP-004.png" alt="SSP-004" class="object-contain max-w-full max-h-full rounded-md" />
       </div>
       <div class="p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Saflec Systems</h3>
-        <p class="text-gray-600">Accessories product</p>
-        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-001</p>
+        <h3 class="font-semibold text-lg mb-2">Power Supplies</h3>
+        <p class="text-gray-600">Lithium 8Ah 12.8V battery. Charges 0°C–55°C, up to 8A. Efficient and durable with 3-year warranty.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-004</p>
+      </div>
+    </div>
+	<!-- Card 9 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SSP-005')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/SSP-005.png" alt="SSP-005" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">Power Supplies</h3>
+        <p class="text-gray-600">12Vdc 3A power supply with enclosure and battery. Reliable power with built-in backup. Suitable for indoor access control use.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-005</p>
+      </div>
+    </div>
+	<!-- Card 10 -->
+    <div class="card bg-white rounded-xl shadow-md overflow-hidden w-full">
+      <button class="add-to-cart-btn" onclick="addToCart('SSP-006')">Add to Quote</button>
+      <div class="flex items-center justify-center w-full aspect-[3/2] p-4">
+        <img src="images/SSP-006.png" alt="SSP-006" class="object-contain max-w-full max-h-full rounded-md" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-semibold text-lg mb-2">Power Supplies</h3>
+        <p class="text-gray-600">14.7Vdc 10A Mean Well switchmode power supply. High-performance and stable power output. Ideal for large installations.</p>
+        <p class="mt-4 text-sm font-medium bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">Product Code: SSP-006</p>
       </div>
     </div>
   </div>
