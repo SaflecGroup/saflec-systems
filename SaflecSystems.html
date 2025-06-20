@@ -1427,32 +1427,36 @@
   <button onclick="toggleReviewForm()" class="inline-block bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg transform transition hover:scale-105 hover:from-blue-600 hover:via-blue-700 hover:to-blue-900">
     Leave a Review
   </button>
-	<form 
-		id="review-form" 
-		action="https://formspree.io/f/mjkrywab" 
-		method="POST" 
-		data-formspree="none"
-		class="mt-6 hidden max-w-xl mx-auto space-y-4 bg-white p-6 rounded-lg shadow"
-	>
-		<div>
-		<label class="block mb-1 text-sm font-medium">Your Name</label>
-		<input name="name" type="text" placeholder="Your Name" class="w-full border border-gray-300 rounded-md p-2" required>
-		</div>
-		<div>
-		<label class="block mb-1 text-sm font-medium">Company Name</label>
-		<input name="company" type="text" placeholder="Company Name" class="w-full border border-gray-300 rounded-md p-2" required>
-		</div>
-		<div>
-		<label class="block mb-1 text-sm font-medium">Your Message</label>
-		<textarea name="message" placeholder="Your Message" rows="4" class="w-full border border-gray-300 rounded-md p-2" required></textarea>
-		</div>
-		<button type="submit" class="inline-block bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg transform transition hover:scale-105 hover:from-blue-600 hover:via-blue-700 hover:to-blue-900">
-		Submit
-		</button>
-	</form>
-	</div>
-  </div>
-</section>
+
+  <form 
+    id="review-form" 
+    action="https://formspree.io/f/mjkrywab" 
+    method="POST" 
+    data-formspree="none"
+    class="mt-6 hidden max-w-xl mx-auto space-y-4 bg-white p-6 rounded-lg shadow"
+  >
+    <div>
+      <label class="block mb-1 text-sm font-medium">Your Name</label>
+      <input name="name" type="text" placeholder="Your Name" class="w-full border border-gray-300 rounded-md p-2" required>
+    </div>
+    <div>
+      <label class="block mb-1 text-sm font-medium">Company Name</label>
+      <input name="company" type="text" placeholder="Company Name" class="w-full border border-gray-300 rounded-md p-2" required>
+    </div>
+    <div>
+      <label class="block mb-1 text-sm font-medium">Your Message</label>
+      <textarea name="message" placeholder="Your Message" rows="4" class="w-full border border-gray-300 rounded-md p-2" required></textarea>
+    </div>
+    <button type="submit" class="inline-block bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg transform transition hover:scale-105 hover:from-blue-600 hover:via-blue-700 hover:to-blue-900">
+      Submit
+    </button>
+    <!-- Success/Error message -->
+    <div id="review-message" class="text-center text-sm mt-4 hidden"></div>
+  </form>
+</div>
+
+<!-- Testimonials Section (Assumes you have a container with id="testimonial-container") -->
+<div id="testimonial-container" class="mt-10 grid gap-6 md:grid-cols-3 px-4"></div>
 
 <script>
   const testimonials = [
@@ -1492,6 +1496,8 @@
 
   function renderTestimonials() {
     const container = document.getElementById("testimonial-container");
+    if (!container) return;
+
     container.innerHTML = "";
 
     const isMobile = window.innerWidth < 768;
@@ -1532,14 +1538,16 @@
 
   const container = document.getElementById("testimonial-container");
 
-  container.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
+  if (container) {
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
 
-  container.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipeGesture();
-  });
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipeGesture();
+    });
+  }
 
   function handleSwipeGesture() {
     const threshold = 50;
@@ -1550,10 +1558,11 @@
     }
   }
 
-  // Submit form via AJAX and show confirmation
+  // Submit form via AJAX and show confirmation inline
   document.getElementById("review-form").addEventListener("submit", function (e) {
     e.preventDefault();
     const form = e.target;
+    const messageEl = document.getElementById("review-message");
 
     fetch(form.action, {
       method: "POST",
@@ -1561,20 +1570,27 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        alert("Thank you for your review!");
         form.reset();
         form.classList.add("hidden");
+        messageEl.textContent = "Thank you for your review!";
+        messageEl.className = "text-green-600 text-center text-sm mt-4";
+        messageEl.classList.remove("hidden");
       } else {
-        alert("There was a problem submitting your review.");
+        messageEl.textContent = "There was a problem submitting your review.";
+        messageEl.className = "text-red-600 text-center text-sm mt-4";
+        messageEl.classList.remove("hidden");
       }
     }).catch(() => {
-      alert("Error sending review. Please try again.");
+      messageEl.textContent = "Error sending review. Please try again.";
+      messageEl.className = "text-red-600 text-center text-sm mt-4";
+      messageEl.classList.remove("hidden");
     });
   });
 
-  // Rerender testimonials on window resize
+  // Rerender on resize
   window.addEventListener("resize", renderTestimonials);
 
+  // Initial render
   renderTestimonials();
 </script>
 
